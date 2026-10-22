@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>케이알건설㈜ | 스마트 시설물 유지관리·정밀안전진단·특허 공법 솔루션</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Pretendard Font & Lucide Icons -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            nv: {
+              black: '#000000',
+              deep: '#0a0a0a',
+              card: '#121212',
+              surface: '#1a1a1a',
+              border: '#2a2a2a',
+              subtle: '#333333',
+              green: '#76b900', // NVIDIA Signature Green
+              greenHover: '#88d600',
+              greenGlow: 'rgba(118, 185, 0, 0.25)',
+              textMuted: '#9e9e9e',
+              textLight: '#e0e0e0',
+            }
+          },
+          boxShadow: {
+            'nv-glow': '0 0 25px -5px rgba(118, 185, 0, 0.35)',
+            'nv-card': '0 10px 30px -10px rgba(0, 0, 0, 0.8)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* NVIDIA-style grid lines and tech backdrop */
+    .nv-grid-bg {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .hero-glow-radial {
+      background: radial-gradient(circle at 50% 30%, rgba(118, 185, 0, 0.15) 0%, rgba(10, 10, 10, 0.95) 70%, #000000 100%);
+    }
+    /* Custom scrollbar for Nvidia Dark aesthetic */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a2a2a;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #76b900;
+    }
+  </style>
+</head>
+<body class="bg-nv-black text-white antialiased font-sans selection:bg-nv-green selection:text-black">
+
+  <!-- Top Banner (NVIDIA Tech Announce Style) -->
+  <aside aria-label="공지사항" class="bg-gradient-to-r from-nv-deep via-nv-surface to-nv-deep border-b border-nv-border text-xs py-2 px-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-2 truncate">
+        <span class="px-2 py-0.5 rounded-sm bg-nv-green text-black font-extrabold text-[10px] uppercase tracking-wider">NEW TECH</span>
+        <span class="text-neutral-300 truncate">KRS-C 고정밀 레이저 세정 녹·도막 박리 특허(제10-2166122호) 상용화 배포</span>
+      </div>
+      <a href="#patents" class="hidden sm:inline-flex items-center text-nv-green hover:underline text-[11px] font-semibold space-x-1 shrink-0 ml-4">
+        <span>기술 백서 확인</span>
+        <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Header -->
+  <header id="navbar" class="sticky top-0 w-full z-40 bg-nv-black/90 backdrop-blur-xl border-b border-neutral-800 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Logo Area -->
+        <a href="#" class="flex items-center space-x-3 group">
+          <div class="w-9 h-9 rounded-sm bg-nv-green flex items-center justify-center font-black text-black text-xl tracking-tighter group-hover:scale-105 transition-transform duration-200">
+            KR
+          </div>
+          <div class="flex flex-col">
+            <div class="flex items-center space-x-2">
+              <span class="text-lg font-black tracking-tight text-white group-hover:text-nv-green transition-colors">김성남종합건설㈜</span>
+              <span class="hidden md:inline-block px-1.5 py-0.2 rounded text-[10px] font-bold border border-nv-green/40 text-nv-green">R&D LAB</span>
+            </div>
+            <span class="text-[9px] tracking-widest text-neutral-400 font-mono -mt-0.5">KR INDUSTRY ENGINEERING</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Items -->
+        <nav class="hidden lg:flex items-center space-x-8 text-xs font-bold uppercase tracking-wider text-neutral-300">
+          <a href="#about" class="hover:text-nv-green transition-colors">회사 및 비전</a>
+          <a href="#patents" class="hover:text-nv-green transition-colors">4대 독점 특허</a>
+          <a href="#mcs-interactive" class="hover:text-nv-green transition-colors">MCS 인상 시스템</a>
+          <a href="#diagnosis" class="hover:text-nv-green transition-colors">정밀안전진단</a>
+          <a href="#performance" class="hover:text-nv-green transition-colors">공사실적 (42건)</a>
+          <a href="#certifications" class="hover:text-nv-green transition-colors">기술진·인증</a>
+        </nav>
+
+        <!-- Right Side CTA -->
+        <div class="hidden sm:flex items-center space-x-4">
+          <a href="#contact" class="px-4 py-2 rounded-sm bg-nv-green hover:bg-nv-greenHover text-black font-extrabold text-xs uppercase tracking-wider transition-all duration-200 shadow-nv-glow flex items-center space-x-1.5">
+            <span>공법 검토 및 견적 문의</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Toggle -->
+        <div class="lg:hidden flex items-center">
+          <button id="mobile-toggle-btn" class="p-2 text-neutral-400 hover:text-white focus:outline-none" aria-label="메뉴 토글">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-nv-deep border-b border-nv-border px-4 py-6 space-y-3">
+      <a href="#about" class="m-link block text-sm font-semibold text-neutral-300 hover:text-nv-green py-1.5">회사 소개 및 비전</a>
+      <a href="#patents" class="m-link block text-sm font-semibold text-neutral-300 hover:text-nv-green py-1.5">4대 독점 특허 공법 (KRM·MCS·KRS·KRS-C)</a>
+      <a href="#mcs-interactive" class="m-link block text-sm font-semibold text-neutral-300 hover:text-nv-green py-1.5">MCS 교량동조인상 시뮬레이션</a>
+      <a href="#diagnosis" class="m-link block text-sm font-semibold text-neutral-300 hover:text-nv-green py-1.5">교량·터널 정밀안전진단 솔루션</a>
+      <a href="#performance" class="m-link block text-sm font-semibold text-neutral-300 hover:text-nv-green py-1.5">공사실적 데이터베이스 (42건)</a>
+      <a href="#certifications" class="m-link block text-sm font-semibold text-neutral-300 hover:text-nv-green py-1.5">기술진 라이선스 & 공인 인증서</a>
+      <a href="#contact" class="m-link block w-full text-center py-2.5 rounded-sm bg-nv-green text-black font-extrabold text-sm uppercase mt-4">기술 및 견적 문의 접수</a>
+    </div>
+  </header>
+
+  <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-nv-black hero-glow-radial nv-grid-bg border-b border-nv-border">
+    <!-- Visual decorative neon accent line -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-nv-green to-transparent"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 text-center">
+      
+      <!-- Top Tag Badge -->
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-nv-surface border border-neutral-700 text-neutral-300 text-xs font-mono mb-6">
+        <span class="w-2 h-2 rounded-full bg-nv-green animate-pulse"></span>
+        <span>INFRASTRUCTURE ARCHITECTURE &amp; REHABILITATION</span>
+      </div>
+
+      <!-- Main Headline in NVIDIA Bold Typography -->
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight uppercase leading-none mb-6">
+        Engineering The Future <br class="hidden sm:inline"/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-400">Of Civil Infrastructure</span><br/>
+        <span class="text-nv-green font-extrabold">케이알건설 주식회사</span>
+      </h1>
+
+      <p class="max-w-3xl mx-auto text-base sm:text-lg text-neutral-400 leading-relaxed font-normal mb-10">
+        국내 최고 정밀도 <strong class="text-white">±0.3mm 컴퓨터 교량 동조 인상 시스템(MCS)</strong>, 친환경 용선슬래그 기반 <strong class="text-white">KRM 단면·표면보수</strong>, 친환경 수용성 <strong class="text-white">KRS 중방식 도장</strong> 및 무공해 <strong class="text-white">KRS-C 레이저 세정</strong>까지—국가 인프라의 안전성과 수명을 혁신하는 엔지니어링 플랫폼을 제공합니다.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#patents" class="w-full sm:w-auto px-8 py-4 rounded-sm bg-nv-green hover:bg-nv-greenHover text-black font-extrabold text-sm uppercase tracking-wider transition-all duration-200 shadow-nv-glow flex items-center justify-center space-x-2">
+          <span>핵심 4대 특허 기술 탐색</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#performance" class="w-full sm:w-auto px-8 py-4 rounded-sm bg-nv-surface hover:bg-neutral-800 border border-neutral-700 text-white font-bold text-sm uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-2">
+          <i data-lucide="layers" class="w-4 h-4 text-nv-green"></i>
+          <span>실적 데이터베이스 열람</span>
+        </a>
+      </div>
+
+      <!-- Key Metrics Strip (NVIDIA Spec Highlights) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-5xl mx-auto text-left">
+        <div class="bg-nv-card/80 backdrop-blur-md p-5 rounded-sm border-l-2 border-nv-green border-y border-r border-nv-border">
+          <div class="text-xs font-mono text-neutral-400 uppercase tracking-widest">Precision Displacement</div>
+          <div class="text-3xl font-black text-white mt-1">±0.3<span class="text-nv-green text-xl font-bold">mm</span></div>
+          <p class="text-xs text-neutral-400 mt-1">MCS 컴퓨터 교량 인상 초정밀 제어</p>
+        </div>
+
+        <div class="bg-nv-card/80 backdrop-blur-md p-5 rounded-sm border-l-2 border-nv-green border-y border-r border-nv-border">
+          <div class="text-xs font-mono text-neutral-400 uppercase tracking-widest">Patented Architecture</div>
+          <div class="text-3xl font-black text-white mt-1">4<span class="text-nv-green text-xl font-bold">건 독점</span></div>
+          <p class="text-xs text-neutral-400 mt-1">KRM / MCS / KRS / KRS-C 공법</p>
+        </div>
+
+        <div class="bg-nv-card/80 backdrop-blur-md p-5 rounded-sm border-l-2 border-nv-green border-y border-r border-nv-border">
+          <div class="text-xs font-mono text-neutral-400 uppercase tracking-widest">Waste Cost Reduction</div>
+          <div class="text-3xl font-black text-white mt-1">91.4<span class="text-nv-green text-xl font-bold">%</span></div>
+          <p class="text-xs text-neutral-400 mt-1">레이저 세정 폐기물 처리비 혁신 절감</p>
+        </div>
+
+        <div class="bg-nv-card/80 backdrop-blur-md p-5 rounded-sm border-l-2 border-nv-green border-y border-r border-nv-border">
+          <div class="text-xs font-mono text-neutral-400 uppercase tracking-widest">Track Record (2019-2020)</div>
+          <div class="text-3xl font-black text-white mt-1">42<span class="text-nv-green text-xl font-bold">+</span></div>
+          <p class="text-xs text-neutral-400 mt-1">국토부·지자체 도로·교량·항만 준공</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about" class="py-24 bg-nv-deep border-b border-nv-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex items-center space-x-3 mb-4">
+        <span class="w-3 h-0.5 bg-nv-green"></span>
+        <span class="text-nv-green text-xs font-mono font-bold uppercase tracking-widest">Corporate Architecture &amp; Mission</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black uppercase text-white mb-12">
+        기술과 원칙으로 완성하는 <br class="hidden sm:inline"/>
+        <span class="text-neutral-400">대한민국 인프라 엔지니어링의 표준</span>
+      </h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        
+        <!-- CEO Greeting & Credential Card -->
+        <div class="lg:col-span-7 bg-nv-card p-8 sm:p-10 rounded-sm border border-nv-border flex flex-col justify-between">
+          <div class="space-y-5 text-sm sm:text-base text-neutral-300 leading-relaxed">
+            <div class="inline-block px-2.5 py-1 rounded-sm bg-neutral-800 text-xs text-neutral-300 font-mono mb-2">
+              EXECUTIVE STATEMENT
+            </div>
+            <p class="text-xl sm:text-2xl font-bold text-white leading-snug">
+              "2019년 창업 이래 탄탄한 기초와 공법 혁신으로 시설물유지관리업에서 독보적인 두각을 나타내고 있습니다."
+            </p>
+            <p class="text-neutral-400 text-sm">
+              안녕하십니까? 케이알건설㈜ 대표이사 <strong class="text-white">김양진</strong>입니다.<br/>
+              저희 케이알건설은 항상 최고의 품질과 선진 기술력으로 시설물 안전과 유지관리의 기초를 탄탄히 다져왔습니다.
+              고객 여러분께 최고의 만족감을 선사하기 위해 끊임없이 연구·개발에 매진하고 있으며,
+              기존의 기술을 보강함과 동시에 친환경 신소재와 로봇·컴퓨터 자동화 복합 기술 도입에도 과감히 도전하고 있습니다.
+            </p>
+            <p class="text-neutral-400 text-sm">
+              우리가 이룩한 모든 연구 성과와 시공 결과는 임직원들의 헌신과 케이알건설을 믿고 맡겨주신 국가 기관 및 협력 고객분들 덕분입니다.
+              기본과 원칙, 정직한 소통으로 사회와 국가 인프라에 반드시 필요한 1등 파트너로 우뚝 서겠습니다.
+            </p>
+          </div>
+
+          <div class="pt-6 mt-8 border-t border-neutral-800 flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <div class="text-xs font-mono text-neutral-500 uppercase">KR INDUSTRY Co., Ltd.</div>
+              <div class="text-lg font-bold text-white">대표이사 김 양 진</div>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-mono text-neutral-400">
+              <span class="px-2 py-1 bg-nv-surface rounded border border-neutral-700">전라남도지사 표창 수상</span>
+              <span class="px-2 py-1 bg-nv-surface rounded border border-neutral-700">법인등록 201111-0055213</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Core Values (변화, 환경, 신뢰) in NVIDIA Tech Pillar Layout -->
+        <div class="lg:col-span-5 flex flex-col justify-between space-y-4">
+          
+          <div class="bg-nv-card p-6 rounded-sm border-l-4 border-nv-green border-y border-r border-nv-border hover:bg-nv-surface transition-colors">
+            <div class="flex items-center space-x-3 mb-2">
+              <span class="text-nv-green font-mono font-bold text-lg">01</span>
+              <h3 class="text-base font-bold text-white uppercase tracking-wider">변화 (Change &amp; Innovation)</h3>
+            </div>
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              항상 그 자리에 머물지 않고 멀티피스톤 동조 인상 및 레이저 비접촉 세정 등 첨단 신기술 개발에 끊임없이 도전합니다.
+            </p>
+          </div>
+
+          <div class="bg-nv-card p-6 rounded-sm border-l-4 border-cyan-400 border-y border-r border-nv-border hover:bg-nv-surface transition-colors">
+            <div class="flex items-center space-x-3 mb-2">
+              <span class="text-cyan-400 font-mono font-bold text-lg">02</span>
+              <h3 class="text-base font-bold text-white uppercase tracking-wider">환경 (Eco-Green Architecture)</h3>
+            </div>
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              제철 부산물인 용선슬래그를 업사이클링한 고강도 모르타르와 VOCs 무해 수용성 중방식 도장으로 자연과 사람을 지킵니다.
+            </p>
+          </div>
+
+          <div class="bg-nv-card p-6 rounded-sm border-l-4 border-yellow-400 border-y border-r border-nv-border hover:bg-nv-surface transition-colors">
+            <div class="flex items-center space-x-3 mb-2">
+              <span class="text-yellow-400 font-mono font-bold text-lg">03</span>
+              <h3 class="text-base font-bold text-white uppercase tracking-wider">신뢰 (Trust &amp; Precision)</h3>
+            </div>
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              한국건설기술인협회 정식 등록 특급·고급 토목 기술 인력과 공인 시험성적서(SGS, KTR)를 바탕으로 오차 없는 시공 품질을 보증합니다.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="patents" class="py-24 bg-nv-black relative border-b border-nv-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="w-3 h-0.5 bg-nv-green"></span>
+            <span class="text-nv-green text-xs font-mono font-bold uppercase tracking-widest">Patented Proprietary Frameworks</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black uppercase text-white">케이알건설 4대 핵심 특허 기술</h2>
+        </div>
+        <p class="text-xs sm:text-sm text-neutral-400 max-w-md mt-4 md:mt-0 font-mono">
+          // SGS·KTR 공인 시험 검증 완료 및 국토교통부 주요 산하기관 납품 규격 통과
+        </p>
+      </div>
+
+      <!-- 4 Patent Cards Grid (NVIDIA RTX / Architecture Style) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Patent 1: KRM 단면 및 표면보수 -->
+        <article class="group bg-nv-card border border-nv-border rounded-sm p-7 flex flex-col justify-between hover:border-nv-green transition-all duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-nv-green/5 rounded-bl-full pointer-events-none group-hover:bg-nv-green/10 transition-colors"></div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded bg-neutral-800 text-nv-green text-xs font-mono font-bold border border-nv-green/30">
+                특허 제10-1975001호 / 제10-2058597호
+              </span>
+              <span class="text-xs font-mono text-neutral-400">SGS 시험성적 통과</span>
+            </div>
+
+            <h3 class="text-2xl font-black text-white group-hover:text-nv-green transition-colors mb-2">
+              KRM 콘크리트 단면·표면보수 시스템
+            </h3>
+            <p class="text-xs font-mono text-neutral-400 mb-4">
+              // 용선슬래그 업사이클링 친환경 폴리머 모르타르 및 고내구성 도막 시스템
+            </p>
+
+            <p class="text-sm text-neutral-300 leading-relaxed mb-6">
+              제철산업 부산물인 <strong>용선슬래그 파우더와 알칼리 활성화제</strong>를 융합하여 기존 자재 대비 부착강도(1.8 N/㎟) 및 압축강도(28일 45.2 N/㎟)를 비약적으로 증진시켰습니다. 염화물 이온 침투 60 Coulombs 차단 및 중성화 깊이 0.0mm를 실현했습니다.
+            </p>
+
+            <!-- Spec Mini Table -->
+            <div class="grid grid-cols-3 gap-2 p-3 bg-nv-deep border border-neutral-800 rounded-sm mb-6 text-center text-xs font-mono">
+              <div>
+                <div class="text-neutral-500 text-[10px]">압축강도(28일)</div>
+                <div class="text-white font-bold mt-0.5">45.2 N/㎟</div>
+              </div>
+              <div class="border-x border-neutral-800">
+                <div class="text-neutral-500 text-[10px]">휨강도</div>
+                <div class="text-white font-bold mt-0.5">9.5 N/㎟</div>
+              </div>
+              <div>
+                <div class="text-neutral-500 text-[10px]">중성화 침투깊이</div>
+                <div class="text-nv-green font-bold mt-0.5">0.0 mm</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
+            <span class="text-xs text-neutral-400 font-mono">적용: 암거, 교량 하부, 방호벽</span>
+            <button onclick="openTechModal('KRM')" class="text-xs font-bold text-nv-green hover:underline flex items-center space-x-1">
+              <span>상세 규격 및 9단계 시공순서</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Patent 2: MCS 컴퓨터 교량 동조 인상 시스템 -->
+        <article class="group bg-nv-card border border-nv-border rounded-sm p-7 flex flex-col justify-between hover:border-nv-green transition-all duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-nv-green/5 rounded-bl-full pointer-events-none group-hover:bg-nv-green/10 transition-colors"></div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded bg-neutral-800 text-nv-green text-xs font-mono font-bold border border-nv-green/30">
+                특허 제10-2049868호
+              </span>
+              <span class="text-xs font-mono text-neutral-400">국내 최고 정밀도 ±0.3mm</span>
+            </div>
+
+            <h3 class="text-2xl font-black text-white group-hover:text-nv-green transition-colors mb-2">
+              MCS 컴퓨터 교량 동조 인상 시스템
+            </h3>
+            <p class="text-xs font-mono text-neutral-400 mb-4">
+              // 멀티피스톤 12채널 정밀 펌프 &amp; 모터 인버터 실시간 계측 제어
+            </p>
+
+            <p class="text-sm text-neutral-300 leading-relaxed mb-6">
+              12개의 독립 미니펌프 토출구를 개별 연결하여 <strong>최소 0.1mm 단위의 변위를 실시간 계측</strong>하고 하중별 동시 인상·인하를 컴퓨터로 완벽 동조합니다. 안전 편차 초과 시 자동 정지 및 보정 기능으로 상부 구조물의 손상과 전복을 원천 차단합니다.
+            </p>
+
+            <!-- Spec Mini Table -->
+            <div class="grid grid-cols-3 gap-2 p-3 bg-nv-deep border border-neutral-800 rounded-sm mb-6 text-center text-xs font-mono">
+              <div>
+                <div class="text-neutral-500 text-[10px]">계측 최소변위</div>
+                <div class="text-white font-bold mt-0.5">0.1 mm</div>
+              </div>
+              <div class="border-x border-neutral-800">
+                <div class="text-neutral-500 text-[10px]">시공 허용오차</div>
+                <div class="text-nv-green font-bold mt-0.5">±0.3 mm</div>
+              </div>
+              <div>
+                <div class="text-neutral-500 text-[10px]">공기 단축 효과</div>
+                <div class="text-white font-bold mt-0.5">50% 이상</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
+            <span class="text-xs text-neutral-400 font-mono">적용: 교좌장치 교체, 지진격리받침</span>
+            <button onclick="openTechModal('MCS')" class="text-xs font-bold text-nv-green hover:underline flex items-center space-x-1">
+              <span>시스템 계통도 및 시공 단계</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Patent 3: KRS 친환경 수용성 중방식 도장 -->
+        <article class="group bg-nv-card border border-nv-border rounded-sm p-7 flex flex-col justify-between hover:border-nv-green transition-all duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-nv-green/5 rounded-bl-full pointer-events-none group-hover:bg-nv-green/10 transition-colors"></div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded bg-neutral-800 text-nv-green text-xs font-mono font-bold border border-nv-green/30">
+                특허 제10-2133243호
+              </span>
+              <span class="text-xs font-mono text-neutral-400">KTR 한국화학융합시험연구원 인증</span>
+            </div>
+
+            <h3 class="text-2xl font-black text-white group-hover:text-nv-green transition-colors mb-2">
+              KRS 친환경 수용성 중방식 도장공법
+            </h3>
+            <p class="text-xs font-mono text-neutral-400 mb-4">
+              // 유기용제 대체 수용성 폴리우레탄 수지도료 기반 강교량 보호
+            </p>
+
+            <p class="text-sm text-neutral-300 leading-relaxed mb-6">
+              화재 위험과 독성이 있는 기존 유성 도료의 한계를 극복하기 위해 <strong>휘발성 유기용제 대신 물을 용매로 채택</strong>했습니다. VOCs 함량을 84.7 g/L로 현저히 저감하였으며, 촉진내후성 94%의 우수한 광택 보존력과 내염성을 확보했습니다.
+            </p>
+
+            <!-- Spec Mini Table -->
+            <div class="grid grid-cols-3 gap-2 p-3 bg-nv-deep border border-neutral-800 rounded-sm mb-6 text-center text-xs font-mono">
+              <div>
+                <div class="text-neutral-500 text-[10px]">VOCs 함량</div>
+                <div class="text-nv-green font-bold mt-0.5">84.7 g/L (저독성)</div>
+              </div>
+              <div class="border-x border-neutral-800">
+                <div class="text-neutral-500 text-[10px]">촉진내후성</div>
+                <div class="text-white font-bold mt-0.5">94% 유지</div>
+              </div>
+              <div>
+                <div class="text-neutral-500 text-[10px]">은폐율</div>
+                <div class="text-white font-bold mt-0.5">99%</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
+            <span class="text-xs text-neutral-400 font-mono">적용: 국도 강교도장, 철구조물</span>
+            <button onclick="openTechModal('KRS')" class="text-xs font-bold text-nv-green hover:underline flex items-center space-x-1">
+              <span>하도-중도-상도 사양 확인</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Patent 4: KRS-C 레이저 세정 녹·페인트 박리공법 -->
+        <article class="group bg-nv-card border border-nv-border rounded-sm p-7 flex flex-col justify-between hover:border-nv-green transition-all duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-nv-green/5 rounded-bl-full pointer-events-none group-hover:bg-nv-green/10 transition-colors"></div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded bg-neutral-800 text-nv-green text-xs font-mono font-bold border border-nv-green/30">
+                특허 제10-2166122호
+              </span>
+              <span class="text-xs font-mono text-nv-green font-bold">폐기물 처리비 91.4% 절감</span>
+            </div>
+
+            <h3 class="text-2xl font-black text-white group-hover:text-nv-green transition-colors mb-2">
+              KRS-C 강교량 레이저 세정 박리공법
+            </h3>
+            <p class="text-xs font-mono text-neutral-400 mb-4">
+              // 도장박리제(K.R.M-1000) 사전 도포 + 비접촉 고출력 레이저 클리닝
+            </p>
+
+            <p class="text-sm text-neutral-300 leading-relaxed mb-6">
+              분진과 소음, 폐기물 과다 발생의 원인이었던 전통적 샌드블라스트를 완전 대체합니다. 강재 모재의 두께 마모 없이 오염된 녹과 노후 도막만을 정밀 기화 제거하며 대규모 방진 설비 없이 친환경 시공이 가능합니다.
+            </p>
+
+            <!-- Spec Mini Table -->
+            <div class="grid grid-cols-2 gap-2 p-3 bg-nv-deep border border-neutral-800 rounded-sm mb-6 text-center text-xs font-mono">
+              <div class="text-left pl-3">
+                <div class="text-neutral-500 text-[10px]">기존 샌드블라스트 처리비</div>
+                <div class="text-neutral-400 line-through text-sm">㎡당 14,000원</div>
+              </div>
+              <div class="text-right pr-3 border-l border-neutral-800">
+                <div class="text-nv-green text-[10px] font-bold">KRS-C 레이저 처리비</div>
+                <div class="text-nv-green font-extrabold text-sm">㎡당 1,200원 (혁신 절감)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
+            <span class="text-xs text-neutral-400 font-mono">적용: 강교량 도장보수, 용접면 전처리</span>
+            <button onclick="openTechModal('KRSC')" class="text-xs font-bold text-nv-green hover:underline flex items-center space-x-1">
+              <span>샌드블라스트 비교분석표</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="mcs-interactive" class="py-24 bg-nv-deep border-b border-nv-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title -->
+      <div class="flex items-center space-x-3 mb-2">
+        <span class="w-3 h-0.5 bg-nv-green"></span>
+        <span class="text-nv-green text-xs font-mono font-bold uppercase tracking-widest">Interactive Technology Demonstration</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black uppercase text-white mb-4">
+        MCS 멀티 유닛 동조 인상 제어 모니터링
+      </h2>
+      <p class="text-sm text-neutral-400 max-w-3xl mb-10 leading-relaxed font-mono">
+        실제 현장에서 운용되는 터치패널 및 메인 컴퓨터의 유압 피스톤 동조 제어 알고리즘을 체험할 수 있습니다. 12개의 실린더 압력과 거리를 최소 0.1mm 단위로 감지하여 균등 제어합니다.
+      </p>
+
+      <!-- The Simulation Dashboard (NVIDIA Control Panel Vibe) -->
+      <div class="bg-nv-black border border-neutral-800 rounded-sm p-6 sm:p-8 shadow-nv-card">
+        
+        <!-- Dashboard Top Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-neutral-800 font-mono text-xs">
+          <div class="flex items-center space-x-3">
+            <div class="flex items-center space-x-2">
+              <span id="sim-status-led" class="w-2.5 h-2.5 rounded-full bg-neutral-600"></span>
+              <span id="sim-status-text" class="text-white font-bold">SYSTEM READY (대기중)</span>
+            </div>
+            <span class="text-neutral-600">|</span>
+            <span class="text-neutral-400">SAFETY TOLERANCE: <span class="text-nv-green font-bold">±0.3mm</span></span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span class="text-neutral-400">TARGET: <strong id="display-target-val" class="text-white font-mono">15.0</strong> mm</span>
+            <span class="text-neutral-400">CURRENT AVG: <strong id="display-current-val" class="text-nv-green font-mono">0.0</strong> mm</span>
+          </div>
+        </div>
+
+        <!-- 4 Bridge Pier Cylinders Visual Representation -->
+        <div class="py-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+          
+          <!-- Jack 1 -->
+          <div class="bg-nv-surface/60 border border-neutral-800 p-4 rounded-sm">
+            <div class="flex justify-between items-center text-xs font-mono mb-2">
+              <span class="text-neutral-400 font-bold">UNIT #1 (좌측 교각)</span>
+              <span id="jack1-disp" class="text-nv-green font-mono font-bold">0.0 mm</span>
+            </div>
+            <!-- Cylinder graphic -->
+            <div class="h-32 bg-nv-deep relative rounded-sm flex items-end justify-center overflow-hidden border border-neutral-800">
+              <div id="jack1-bar" class="w-16 bg-gradient-to-t from-neutral-700 to-nv-green transition-all duration-300 rounded-t-sm" style="height: 10%;"></div>
+            </div>
+            <div class="mt-3 flex justify-between text-[11px] font-mono text-neutral-400">
+              <span>PRESSURE</span>
+              <span id="jack1-press" class="text-white">142 bar</span>
+            </div>
+          </div>
+
+          <!-- Jack 2 -->
+          <div class="bg-nv-surface/60 border border-neutral-800 p-4 rounded-sm">
+            <div class="flex justify-between items-center text-xs font-mono mb-2">
+              <span class="text-neutral-400 font-bold">UNIT #2 (중앙 1)</span>
+              <span id="jack2-disp" class="text-nv-green font-mono font-bold">0.0 mm</span>
+            </div>
+            <div class="h-32 bg-nv-deep relative rounded-sm flex items-end justify-center overflow-hidden border border-neutral-800">
+              <div id="jack2-bar" class="w-16 bg-gradient-to-t from-neutral-700 to-nv-green transition-all duration-300 rounded-t-sm" style="height: 10%;"></div>
+            </div>
+            <div class="mt-3 flex justify-between text-[11px] font-mono text-neutral-400">
+              <span>PRESSURE</span>
+              <span id="jack2-press" class="text-white">155 bar</span>
+            </div>
+          </div>
+
+          <!-- Jack 3 -->
+          <div class="bg-nv-surface/60 border border-neutral-800 p-4 rounded-sm">
+            <div class="flex justify-between items-center text-xs font-mono mb-2">
+              <span class="text-neutral-400 font-bold">UNIT #3 (중앙 2)</span>
+              <span id="jack3-disp" class="text-nv-green font-mono font-bold">0.0 mm</span>
+            </div>
+            <div class="h-32 bg-nv-deep relative rounded-sm flex items-end justify-center overflow-hidden border border-neutral-800">
+              <div id="jack3-bar" class="w-16 bg-gradient-to-t from-neutral-700 to-nv-green transition-all duration-300 rounded-t-sm" style="height: 10%;"></div>
+            </div>
+            <div class="mt-3 flex justify-between text-[11px] font-mono text-neutral-400">
+              <span>PRESSURE</span>
+              <span id="jack3-press" class="text-white">153 bar</span>
+            </div>
+          </div>
+
+          <!-- Jack 4 -->
+          <div class="bg-nv-surface/60 border border-neutral-800 p-4 rounded-sm">
+            <div class="flex justify-between items-center text-xs font-mono mb-2">
+              <span class="text-neutral-400 font-bold">UNIT #4 (우측 교각)</span>
+              <span id="jack4-disp" class="text-nv-green font-mono font-bold">0.0 mm</span>
+            </div>
+            <div class="h-32 bg-nv-deep relative rounded-sm flex items-end justify-center overflow-hidden border border-neutral-800">
+              <div id="jack4-bar" class="w-16 bg-gradient-to-t from-neutral-700 to-nv-green transition-all duration-300 rounded-t-sm" style="height: 10%;"></div>
+            </div>
+            <div class="mt-3 flex justify-between text-[11px] font-mono text-neutral-400">
+              <span>PRESSURE</span>
+              <span id="jack4-press" class="text-white">139 bar</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Controls Toolbar -->
+        <div class="pt-6 border-t border-neutral-800 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center space-x-3 text-xs font-mono">
+            <label for="target-input" class="text-neutral-400">목표 인상량:</label>
+            <select id="target-input" class="bg-neutral-800 border border-neutral-700 text-white px-3 py-1.5 rounded-sm outline-none font-mono">
+              <option value="10">10.0 mm</option>
+              <option value="15" selected>15.0 mm (교좌장치 교체 표준)</option>
+              <option value="25">25.0 mm (내진 격리받침 개조)</option>
+            </select>
+          </div>
+
+          <div class="flex items-center space-x-3">
+            <button id="btn-start-jacking" onclick="runJackingSim()" class="px-5 py-2 rounded-sm bg-nv-green hover:bg-nv-greenHover text-black font-extrabold text-xs uppercase tracking-wider font-mono transition">
+              동조 인상 시작 (START)
+            </button>
+            <button id="btn-reset-jacking" onclick="resetJackingSim()" class="px-4 py-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 text-neutral-300 font-bold text-xs uppercase font-mono transition">
+              원위치 복귀 (RESET)
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="diagnosis" class="py-24 bg-nv-black border-b border-nv-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex items-center space-x-3 mb-2">
+        <span class="w-3 h-0.5 bg-nv-green"></span>
+        <span class="text-nv-green text-xs font-mono font-bold uppercase tracking-widest">Inspection &amp; Infrastructure Hardening</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black uppercase text-white mb-4">
+        시설물 안전진단 및 내진·항만 솔루션
+      </h2>
+      <p class="text-sm text-neutral-400 max-w-3xl mb-12">
+        케이알건설㈜은 <strong>교량 및 터널 안전진단전문기관</strong>으로서 정기·정밀점검 및 정밀안전진단 용역을 완벽히 수행하며, 지진 재해 대비 내진보강과 연안 항만 부잔교 제작·설치까지 통합 엔지니어링을 제공합니다.
+      </p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Diagnosis Legal Frequency Matrix Table -->
+        <div class="lg:col-span-7 bg-nv-card border border-nv-border rounded-sm p-6 sm:p-8">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-bold text-white flex items-center space-x-2">
+              <i data-lucide="clipboard-check" class="w-5 h-5 text-nv-green"></i>
+              <span>시설물안전법 기준 진단 주기 매트릭스</span>
+            </h3>
+            <span class="text-[11px] font-mono text-neutral-400">국토교통부 고시 기준</span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs font-mono">
+              <thead class="bg-nv-deep text-neutral-400 uppercase border-b border-neutral-800">
+                <tr>
+                  <th class="py-3 px-3">점검 구분</th>
+                  <th class="py-3 px-3">안전 등급</th>
+                  <th class="py-3 px-3 text-nv-green">법정 점검 주기</th>
+                  <th class="py-3 px-3">주요 점검 항목</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-neutral-800 text-neutral-300">
+                <tr>
+                  <td class="py-3 px-3 font-bold text-white">정기안전점검</td>
+                  <td class="py-3 px-3">A ~ E 등급</td>
+                  <td class="py-3 px-3 text-nv-green font-bold">1회 / 6개월 (반기별)</td>
+                  <td class="py-3 px-3 text-neutral-400">세심한 외관 및 변상 조사</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-3 font-bold text-white" rowspan="2">정밀안전점검</td>
+                  <td class="py-3 px-3">A 등급</td>
+                  <td class="py-3 px-3">3년에 1회 이상</td>
+                  <td class="py-3 px-3 text-neutral-400" rowspan="2">시설물 상태평가 &amp; 안전등급 지정<br>(외관조사망도 작성)</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-3">B ~ C 등급</td>
+                  <td class="py-3 px-3 font-semibold text-white">2년에 1회 이상</td>
+                </tr>
+                <tr class="bg-neutral-900/60">
+                  <td class="py-3 px-3 font-bold text-white" rowspan="2">정밀안전진단</td>
+                  <td class="py-3 px-3">A 등급</td>
+                  <td class="py-3 px-3">6년에 1회 이상</td>
+                  <td class="py-3 px-3 text-neutral-400" rowspan="2">구조 안전성 해석평가<br>정·동적 재하시험 및 내진평가</td>
+                </tr>
+                <tr class="bg-neutral-900/60">
+                  <td class="py-3 px-3 text-nv-green font-bold">B ~ C 등급</td>
+                  <td class="py-3 px-3 text-nv-green font-bold">5년에 1회 이상</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Non-destructive Testing Items -->
+          <div class="mt-6 pt-6 border-t border-neutral-800">
+            <div class="text-xs font-mono text-neutral-400 mb-3 uppercase tracking-wider">주요 정밀 계측 및 비파괴 시험 장비 보유 현황</div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs text-neutral-300">
+              <div class="p-2 bg-nv-deep rounded-sm border border-neutral-800 flex items-center space-x-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-nv-green"></span>
+                <span>철근탐사 비파괴 시험</span>
+              </div>
+              <div class="p-2 bg-nv-deep rounded-sm border border-neutral-800 flex items-center space-x-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-nv-green"></span>
+                <span>초음파 속도 및 결함 탐사</span>
+              </div>
+              <div class="p-2 bg-nv-deep rounded-sm border border-neutral-800 flex items-center space-x-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-nv-green"></span>
+                <span>콘크리트 탄산화(중성화)</span>
+              </div>
+              <div class="p-2 bg-nv-deep rounded-sm border border-neutral-800 flex items-center space-x-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-nv-green"></span>
+                <span>정적·동적 차량 재하시험</span>
+              </div>
+              <div class="p-2 bg-nv-deep rounded-sm border border-neutral-800 flex items-center space-x-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-nv-green"></span>
+                <span>균열 심도 초음파 측정</span>
+              </div>
+              <div class="p-2 bg-nv-deep rounded-sm border border-neutral-800 flex items-center space-x-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-nv-green"></span>
+                <span>콘크리트 코아 채취 강도</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Side: Retrofit & Harbor Marine Infrastructure -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Card 1: Seismic Retrofit -->
+          <div class="bg-nv-card border border-nv-border rounded-sm p-6 relative overflow-hidden">
+            <div class="flex items-center space-x-3 mb-3">
+              <div class="p-2 bg-nv-green/10 text-nv-green rounded">
+                <i data-lucide="shield-alert" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-base font-bold text-white uppercase">교량 내진성능 보강공사</h3>
+            </div>
+            <p class="text-xs text-neutral-400 leading-relaxed mb-4">
+              지진 발생 시 상부 구조물의 낙교를 방지하는 <strong>전단키(Shear Key) 제작·설치</strong> 및 지진 에너지 흡수를 위한 <strong>점성 댐퍼(Viscous Damper)</strong> 장착을 전문 시공합니다. (국도38호선 곰골1교, 영암 삼포4교 등 다수 실적 보유)
+            </p>
+            <div class="flex flex-wrap gap-1.5 text-[10px] font-mono">
+              <span class="px-2 py-0.5 bg-nv-deep rounded border border-neutral-700 text-neutral-300">전단키 정밀 설치</span>
+              <span class="px-2 py-0.5 bg-nv-deep rounded border border-neutral-700 text-neutral-300">점성댐퍼 거치</span>
+              <span class="px-2 py-0.5 bg-nv-deep rounded border border-neutral-700 text-neutral-300">지진격리받침 교체</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Harbor Marine Pontoon Bridge -->
+          <div class="bg-nv-card border border-nv-border rounded-sm p-6 relative overflow-hidden">
+            <div class="flex items-center space-x-3 mb-3">
+              <div class="p-2 bg-cyan-500/10 text-cyan-400 rounded">
+                <i data-lucide="anchor" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-base font-bold text-white uppercase">해양 항만 부잔교·도교 제작 및 설치</h3>
+            </div>
+            <p class="text-xs text-neutral-400 leading-relaxed mb-4">
+              조수간만의 차에 완벽히 대응하는 <strong>트러스형 부잔교, 복합 다기능 부잔교, 연결 도교 및 선상 집하장</strong>을 자체 제작·설치하여 완도항 관공선부두, 목포 고하도 응박개항, 진도항 등에 안정적인 접안 시설을 공급해왔습니다.
+            </p>
+            <div class="flex flex-wrap gap-1.5 text-[10px] font-mono">
+              <span class="px-2 py-0.5 bg-nv-deep rounded border border-neutral-700 text-neutral-300">완도항 제2·3부두 유지보수</span>
+              <span class="px-2 py-0.5 bg-nv-deep rounded border border-neutral-700 text-neutral-300">선상집하장 함선제작</span>
+              <span class="px-2 py-0.5 bg-nv-deep rounded border border-neutral-700 text-neutral-300">계류함선 고정정비</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="performance" class="py-24 bg-nv-deep border-b border-nv-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+        <div>
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="w-3 h-0.5 bg-nv-green"></span>
+            <span class="text-nv-green text-xs font-mono font-bold uppercase tracking-widest">Verified Infrastructure Track Record</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black uppercase text-white">케이알건설 연도별 공사 실적 현황</h2>
+          <p class="text-xs sm:text-sm text-neutral-400 font-mono mt-1">
+            카탈로그 수록 42건 관급 공사 데이터베이스 (국토관리사무소 및 광역지자체 발주)
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="flex flex-wrap gap-2 mt-4 md:mt-0 font-mono text-xs">
+          <button class="perf-btn px-3 py-1.5 rounded-sm bg-nv-green text-black font-extrabold" data-filter="all">전체 (42)</button>
+          <button class="perf-btn px-3 py-1.5 rounded-sm bg-nv-surface hover:bg-neutral-800 text-neutral-300 border border-neutral-700" data-filter="교량인상">교량인상(MCS)</button>
+          <button class="perf-btn px-3 py-1.5 rounded-sm bg-nv-surface hover:bg-neutral-800 text-neutral-300 border border-neutral-700" data-filter="단면보수">단면·표면보수(KRM)</button>
+          <button class="perf-btn px-3 py-1.5 rounded-sm bg-nv-surface hover:bg-neutral-800 text-neutral-300 border border-neutral-700" data-filter="항만">항만·부잔교</button>
+          <button class="perf-btn px-3 py-1.5 rounded-sm bg-nv-surface hover:bg-neutral-800 text-neutral-300 border border-neutral-700" data-filter="도장">도장·교면방수</button>
+        </div>
+      </div>
+
+      <!-- Real Performance Data Table (42 verified projects) -->
+      <div class="bg-nv-black border border-neutral-800 rounded-sm overflow-hidden shadow-nv-card">
+        <div class="max-h-[520px] overflow-y-auto">
+          <table class="w-full text-left text-xs font-mono">
+            <thead class="bg-neutral-900 text-neutral-400 uppercase sticky top-0 z-10 border-b border-neutral-800">
+              <tr>
+                <th class="py-3 px-4 text-center w-14">No</th>
+                <th class="py-3 px-4 text-center w-20">연도</th>
+                <th class="py-3 px-6">공사명</th>
+                <th class="py-3 px-6">발주처</th>
+                <th class="py-3 px-6 text-center">적용 공법 / 비고</th>
+              </tr>
+            </thead>
+            <tbody id="perf-table-body" class="divide-y divide-neutral-800/80 text-neutral-300">
+              <!-- Dynamically populated via JS from official PPT catalog -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- OEM Partnership Footer Strip -->
+        <div class="p-4 bg-nv-surface/60 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-neutral-400 gap-2">
+          <div class="flex items-center space-x-2">
+            <span class="w-2 h-2 rounded-full bg-nv-green"></span>
+            <span>공식 기술 제휴 및 생산 파트너십:</span>
+            <span class="text-white font-bold">삼화페인트, ㈜케미우스코리아, ㈜케이알티앤에스 OEM 계약 체결</span>
+          </div>
+          <span class="text-neutral-500">실시간 실적 검색 및 필터 지원</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="certifications" class="py-24 bg-nv-black border-b border-nv-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Official Credentials & Licenses -->
+        <div class="lg:col-span-6">
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="w-3 h-0.5 bg-nv-green"></span>
+            <span class="text-nv-green text-xs font-mono font-bold uppercase tracking-widest">Enterprise Certifications</span>
+          </div>
+          <h2 class="text-3xl font-black uppercase text-white mb-6">등록증 및 기업 인증 현황</h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            
+            <div class="p-4 bg-nv-card border border-neutral-800 rounded-sm">
+              <span class="text-[10px] font-mono text-nv-green uppercase">국세청 법인 등록</span>
+              <h4 class="text-sm font-bold text-white mt-0.5">사업자등록증</h4>
+              <p class="text-xs font-mono text-neutral-400 mt-1">등록번호: 744-88-01072</p>
+              <p class="text-[11px] text-neutral-500">업태: 건설업 / 종목: 시설물유지관리업 외</p>
+            </div>
+
+            <div class="p-4 bg-nv-card border border-neutral-800 rounded-sm">
+              <span class="text-[10px] font-mono text-nv-green uppercase">기술보증기금 (KIBO)</span>
+              <h4 class="text-sm font-bold text-white mt-0.5">벤처기업 확인서</h4>
+              <p class="text-xs font-mono text-neutral-400 mt-1">제 20200109308 호</p>
+              <p class="text-[11px] text-neutral-500">기술평가보증기업 정식 확인</p>
+            </div>
+
+            <div class="p-4 bg-nv-card border border-neutral-800 rounded-sm">
+              <span class="text-[10px] font-mono text-nv-green uppercase">한국산업기술진흥협회</span>
+              <h4 class="text-sm font-bold text-white mt-0.5">기업부설연구소 인정서</h4>
+              <p class="text-xs font-mono text-neutral-400 mt-1">제 2020112954 호</p>
+              <p class="text-[11px] text-neutral-500">자체 신공법 연구 및 특허 R&amp;D 수행</p>
+            </div>
+
+            <div class="p-4 bg-nv-card border border-neutral-800 rounded-sm">
+              <span class="text-[10px] font-mono text-nv-green uppercase">중소벤처기업부</span>
+              <h4 class="text-sm font-bold text-white mt-0.5">여성기업 확인서</h4>
+              <p class="text-xs font-mono text-neutral-400 mt-1">제 0126-2019-01555 호</p>
+              <p class="text-[11px] text-neutral-500">공공구매 우대 및 입찰 적격</p>
+            </div>
+
+            <div class="p-4 bg-nv-card border border-neutral-800 rounded-sm">
+              <span class="text-[10px] font-mono text-neutral-400 uppercase">건설업 면허 등록</span>
+              <h4 class="text-sm font-bold text-white mt-0.5">전문건설업 면허 2종</h4>
+              <p class="text-xs font-mono text-neutral-400 mt-1">시설물유지관리업 (목포2019-29-05)</p>
+              <p class="text-[11px] text-neutral-500">금속구조물·창호·온실 (목포2020-07-01)</p>
+            </div>
+
+            <div class="p-4 bg-nv-card border border-neutral-800 rounded-sm">
+              <span class="text-[10px] font-mono text-neutral-400 uppercase">환경 안전 전문면허</span>
+              <h4 class="text-sm font-bold text-white mt-0.5">석면해체제거업 등록</h4>
+              <p class="text-xs font-mono text-neutral-400 mt-1">등록번호: 제 5740 호</p>
+              <p class="text-[11px] text-neutral-500">산업안전보건 기준 적격 라이선스</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Certified Professional Engineers Table (From PPT page 15) -->
+        <div class="lg:col-span-6">
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="w-3 h-0.5 bg-nv-green"></span>
+            <span class="text-nv-green text-xs font-mono font-bold uppercase tracking-widest">Licensed Technicians Roster</span>
+          </div>
+          <h2 class="text-3xl font-black uppercase text-white mb-6">전문 토목 기술인력 보유 현황</h2>
+
+          <div class="bg-nv-card border border-neutral-800 rounded-sm overflow-hidden">
+            <table class="w-full text-left text-xs font-mono">
+              <thead class="bg-nv-deep text-neutral-400 uppercase border-b border-neutral-800">
+                <tr>
+                  <th class="py-3 px-3.5">직급</th>
+                  <th class="py-3 px-3.5">성명</th>
+                  <th class="py-3 px-3.5">전문분야</th>
+                  <th class="py-3 px-3.5">등급</th>
+                  <th class="py-3 px-3.5">자격번호</th>
+                  <th class="py-3 px-3.5 text-neutral-500">취득일</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-neutral-800 text-neutral-300">
+                <tr class="bg-neutral-900/40">
+                  <td class="py-2.5 px-3.5 font-bold text-white">대표</td>
+                  <td class="py-2.5 px-3.5 font-bold text-nv-green">오상원</td>
+                  <td class="py-2.5 px-3.5">토목</td>
+                  <td class="py-2.5 px-3.5"><span class="px-1.5 py-0.5 rounded bg-blue-900/40 text-blue-300 text-[10px] font-bold">중급</span></td>
+                  <td class="py-2.5 px-3.5 text-neutral-400">G00637254</td>
+                  <td class="py-2.5 px-3.5 text-neutral-500">2018.02.27</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3.5 font-bold text-white">이사</td>
+                  <td class="py-2.5 px-3.5">김홍식</td>
+                  <td class="py-2.5 px-3.5">토목</td>
+                  <td class="py-2.5 px-3.5"><span class="px-1.5 py-0.5 rounded bg-nv-green/20 text-nv-green text-[10px] font-bold">고급</span></td>
+                  <td class="py-2.5 px-3.5 text-neutral-400">G00236496</td>
+                  <td class="py-2.5 px-3.5 text-neutral-500">2011.01.28</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3.5 font-bold text-white">설계팀장</td>
+                  <td class="py-2.5 px-3.5">윤준상</td>
+                  <td class="py-2.5 px-3.5">토목</td>
+                  <td class="py-2.5 px-3.5"><span class="px-1.5 py-0.5 rounded bg-nv-green/20 text-nv-green text-[10px] font-bold">고급</span></td>
+                  <td class="py-2.5 px-3.5 text-neutral-400">G00733846</td>
+                  <td class="py-2.5 px-3.5 text-neutral-500">2018.08.28</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3.5 font-bold text-white">부장</td>
+                  <td class="py-2.5 px-3.5">옥일화</td>
+                  <td class="py-2.5 px-3.5">토목</td>
+                  <td class="py-2.5 px-3.5"><span class="px-1.5 py-0.5 rounded bg-blue-900/40 text-blue-300 text-[10px] font-bold">중급</span></td>
+                  <td class="py-2.5 px-3.5 text-neutral-400">G00654476</td>
+                  <td class="py-2.5 px-3.5 text-neutral-500">2019.01.23</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3.5 font-bold text-white">이사</td>
+                  <td class="py-2.5 px-3.5">정연수</td>
+                  <td class="py-2.5 px-3.5">토목</td>
+                  <td class="py-2.5 px-3.5"><span class="px-1.5 py-0.5 rounded bg-neutral-800 text-neutral-300 text-[10px]">초급</span></td>
+                  <td class="py-2.5 px-3.5 text-neutral-400">G00467109</td>
+                  <td class="py-2.5 px-3.5 text-neutral-500">2007.04.06</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3.5 font-bold text-white">시공팀장</td>
+                  <td class="py-2.5 px-3.5">김정환</td>
+                  <td class="py-2.5 px-3.5">토목</td>
+                  <td class="py-2.5 px-3.5"><span class="px-1.5 py-0.5 rounded bg-neutral-800 text-neutral-300 text-[10px]">초급</span></td>
+                  <td class="py-2.5 px-3.5 text-neutral-400">G00749203</td>
+                  <td class="py-2.5 px-3.5 text-neutral-500">2014.05.23</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3.5 font-bold text-white">과장</td>
+                  <td class="py-2.5 px-3.5">조재현</td>
+                  <td class="py-2.5 px-3.5">토목</td>
+                  <td class="py-2.5 px-3.5"><span class="px-1.5 py-0.5 rounded bg-neutral-800 text-neutral-300 text-[10px]">초급</span></td>
+                  <td class="py-2.5 px-3.5 text-neutral-400">G00712509</td>
+                  <td class="py-2.5 px-3.5 text-neutral-500">2017.01.03</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3.5 font-bold text-white">과장</td>
+                  <td class="py-2.5 px-3.5">심재양</td>
+                  <td class="py-2.5 px-3.5">토목</td>
+                  <td class="py-2.5 px-3.5"><span class="px-1.5 py-0.5 rounded bg-neutral-800 text-neutral-300 text-[10px]">초급</span></td>
+                  <td class="py-2.5 px-3.5 text-neutral-400">G00715503</td>
+                  <td class="py-2.5 px-3.5 text-neutral-500">2017.02.07</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-[11px] font-mono text-neutral-500 mt-2">
+            * 한국건설기술인협회 경력증명서 확인 완료된 특급·고급·중급 정예 토목 엔지니어링 인력진
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="py-24 bg-nv-deep relative border-b border-nv-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Contact Meta Info -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="w-3 h-0.5 bg-nv-green"></span>
+            <span class="text-nv-green text-xs font-mono font-bold uppercase tracking-widest">Connect With Specialists</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black uppercase text-white leading-tight">
+            기술 검토 의견서 및 <br/>
+            공법 설계 견적 의뢰
+          </h2>
+          <p class="text-sm text-neutral-400 leading-relaxed font-mono">
+            교량 동조 인상(MCS), 친환경 슬래그 단면보수(KRM), 수용성 중방식 도장(KRS), 레이저 세정(KRS-C), 시설물 안전진단에 대한 기술 지원 및 공법 비교 검토서를 즉시 제공해 드립니다.
+          </p>
+
+          <div class="p-6 bg-nv-card border border-neutral-800 rounded-sm space-y-4 font-mono text-xs">
+            <div class="flex items-start space-x-3">
+              <i data-lucide="map-pin" class="w-4 h-4 text-nv-green shrink-0 mt-0.5"></i>
+              <div>
+                <div class="text-neutral-500 uppercase text-[10px]">Headquarters</div>
+                <div class="text-white font-semibold">전라남도 목포시 평화로 38, 4층(상동)</div>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <i data-lucide="phone" class="w-4 h-4 text-nv-green shrink-0 mt-0.5"></i>
+              <div>
+                <div class="text-neutral-500 uppercase text-[10px]">Direct Phone &amp; Fax</div>
+                <div class="text-white font-bold text-sm">TEL: 061-285-6900</div>
+                <div class="text-neutral-400 text-xs">FAX: 061-285-6901</div>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <i data-lucide="mail" class="w-4 h-4 text-nv-green shrink-0 mt-0.5"></i>
+              <div>
+                <div class="text-neutral-500 uppercase text-[10px]">Official E-Mail</div>
+                <div class="text-nv-green font-bold">kr2856900@naver.com</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 bg-nv-surface/40 border border-neutral-800 text-xs font-mono text-neutral-400">
+            <span class="text-white font-bold">운영 시간:</span> 평일 09:00 ~ 18:00 (주말 및 공휴일 긴급 진단 접수 가능)
+          </div>
+        </div>
+
+        <!-- Technical Form -->
+        <div class="lg:col-span-7 bg-nv-black border border-neutral-800 rounded-sm p-8 sm:p-10 shadow-nv-card">
+          <div class="flex items-center justify-between mb-6 pb-4 border-b border-neutral-800 font-mono">
+            <span class="text-xs uppercase text-neutral-400">ENGINEERING SPECIFICATION DISPATCH</span>
+            <span class="text-[10px] text-nv-green bg-neutral-800 px-2 py-0.5 rounded">24HR SLA</span>
+          </div>
+
+          <form id="inquiry-form" onsubmit="handleInquirySubmit(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono">
+              <div>
+                <label class="block text-xs uppercase text-neutral-400 mb-1" for="name">성함 및 직함 <span class="text-nv-green">*</span></label>
+                <input type="text" id="name" required placeholder="홍길동 수석" class="w-full bg-nv-deep border border-neutral-800 focus:border-nv-green rounded-sm px-3.5 py-2.5 text-xs text-white outline-none transition">
+              </div>
+              <div>
+                <label class="block text-xs uppercase text-neutral-400 mb-1" for="company">발주처 / 시공사명 <span class="text-nv-green">*</span></label>
+                <input type="text" id="company" required placeholder="OO국토관리사무소 / OO건설" class="w-full bg-nv-deep border border-neutral-800 focus:border-nv-green rounded-sm px-3.5 py-2.5 text-xs text-white outline-none transition">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono">
+              <div>
+                <label class="block text-xs uppercase text-neutral-400 mb-1" for="phone">연락처 <span class="text-nv-green">*</span></label>
+                <input type="tel" id="phone" required placeholder="010-0000-0000" class="w-full bg-nv-deep border border-neutral-800 focus:border-nv-green rounded-sm px-3.5 py-2.5 text-xs text-white outline-none transition">
+              </div>
+              <div>
+                <label class="block text-xs uppercase text-neutral-400 mb-1" for="email">이메일 <span class="text-nv-green">*</span></label>
+                <input type="email" id="email" required placeholder="engineer@domain.com" class="w-full bg-nv-deep border border-neutral-800 focus:border-nv-green rounded-sm px-3.5 py-2.5 text-xs text-white outline-none transition">
+              </div>
+            </div>
+
+            <div class="font-mono">
+              <label class="block text-xs uppercase text-neutral-400 mb-1" for="tech-select">검토 대상 특허 공법 및 용역 <span class="text-nv-green">*</span></label>
+              <select id="tech-select" required class="w-full bg-nv-deep border border-neutral-800 focus:border-nv-green rounded-sm px-3.5 py-2.5 text-xs text-white outline-none transition">
+                <option value="">기술 분야를 선택하십시오</option>
+                <option value="mcs">MCS 컴퓨터 교량 동조 인상 시스템 (교좌장치 교체/인상)</option>
+                <option value="krm">KRM 친환경 용선슬래그 콘크리트 단면·표면보수</option>
+                <option value="krs">KRS 친환경 수용성 중방식 도장 시스템</option>
+                <option value="krsc">KRS-C 강교량 도장박리 및 레이저 정밀 세정공법</option>
+                <option value="diagnosis">시설물 안전점검 및 교량·터널 정밀안전진단 용역</option>
+                <option value="damper">교량 내진성능 보강 (전단키, 점성댐퍼 제작·설치)</option>
+                <option value="harbor">해양 항만시설 부잔교·도교 제작 및 선상집하장</option>
+              </select>
+            </div>
+
+            <div class="font-mono">
+              <label class="block text-xs uppercase text-neutral-400 mb-1" for="details">시설물 개요 및 현장 요구조건 <span class="text-nv-green">*</span></label>
+              <textarea id="details" rows="4" required placeholder="시설물 위치(교량/터널명), 연장 및 보수 물량, 공사 기한, 특허 공법 신규 적용 여부 등을 기재해 주십시오." class="w-full bg-nv-deep border border-neutral-800 focus:border-nv-green rounded-sm px-3.5 py-2.5 text-xs text-white outline-none transition"></textarea>
+            </div>
+
+            <div class="flex items-center space-x-2 font-mono text-[11px] text-neutral-400 pt-1">
+              <input type="checkbox" id="privacy-check" required class="rounded bg-neutral-900 border-neutral-700 text-nv-green focus:ring-0">
+              <label for="privacy-check">개인정보 수집 및 기술상담 활용에 동의합니다.</label>
+            </div>
+
+            <button type="submit" class="w-full py-3.5 rounded-sm bg-nv-green hover:bg-nv-greenHover text-black font-extrabold text-xs uppercase tracking-widest font-mono shadow-nv-glow transition">
+              견적 및 공법 검토의견서 요청 접수
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-black text-neutral-400 py-16 border-t border-nv-border font-mono text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Brand Row -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between pb-10 border-b border-neutral-800 gap-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-sm bg-nv-green flex items-center justify-center font-black text-black text-lg">
+            KR
+          </div>
+          <div>
+            <div class="text-base font-bold text-white">케이알건설 주식회사</div>
+            <div class="text-[10px] text-neutral-500 uppercase tracking-widest">KR INDUSTRY CO., LTD.</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4 text-xs">
+          <a href="#patents" class="text-neutral-400 hover:text-nv-green transition">특허공법</a>
+          <span class="text-neutral-700">/</span>
+          <a href="#mcs-interactive" class="text-neutral-400 hover:text-nv-green transition">MCS 시뮬레이터</a>
+          <span class="text-neutral-700">/</span>
+          <a href="#diagnosis" class="text-neutral-400 hover:text-nv-green transition">안전진단</a>
+          <span class="text-neutral-700">/</span>
+          <a href="#performance" class="text-neutral-400 hover:text-nv-green transition">공사실적</a>
+          <span class="text-neutral-700">/</span>
+          <a href="#contact" class="text-neutral-400 hover:text-nv-green transition">고객지원</a>
+        </div>
+      </div>
+
+      <!-- Detail Corporate Spec -->
+      <div class="py-10 grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-neutral-800 text-[11px] leading-relaxed">
+        <div>
+          <div class="text-white font-bold mb-2 uppercase tracking-wider text-xs">Company Registration</div>
+          <p>상호: 케이알건설㈜ | 대표이사: 김양진</p>
+          <p>사업자등록번호: 744-88-01072 | 법인등록: 201111-0055213</p>
+          <p>시설물유지관리업: 목포2019-29-05</p>
+          <p>금속구조물·창호: 목포2020-07-01 | 석면해체: 제 5740 호</p>
+        </div>
+
+        <div>
+          <div class="text-white font-bold mb-2 uppercase tracking-wider text-xs">Headquarters Location</div>
+          <p>본사: 전라남도 목포시 평화로 38, 4층(상동)</p>
+          <p>대표전화: 061-285-6900 | 팩스: 061-285-6901</p>
+          <p>공식메일: kr2856900@naver.com</p>
+          <p>기업부설연구소: 제 2020112954 호</p>
+        </div>
+
+        <div>
+          <div class="text-white font-bold mb-2 uppercase tracking-wider text-xs">Official Partnerships</div>
+          <p>• 삼화페인트 OEM 도료 생산 제휴</p>
+          <p>• ㈜케미우스코리아 / ㈜케이알티앤에스 계약</p>
+          <p>• 기술보증기금 벤처기업 인증 (제20200109308호)</p>
+          <p>• 한국산업기술진흥협회 / 중소벤처기업부 인증</p>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-neutral-500 text-[11px] gap-4">
+        <div>
+          &copy; 2026 KR INDUSTRY CO., LTD. ALL RIGHTS RESERVED.
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" onclick="showCustomDialog('케이알건설의 개인정보 처리방침을 준수합니다.')" class="hover:text-neutral-400">개인정보처리방침</a>
+          <a href="#" onclick="showCustomDialog('이메일 무단 수집을 엄격히 거부합니다.')" class="hover:text-neutral-400">이메일무단수집거부</a>
+          <a href="#contact" class="hover:text-neutral-400">오시는 길</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Tech Whitepaper Modal (NVIDIA Technical Spec Popover) -->
+  <div id="tech-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+    <div class="bg-nv-card border border-neutral-700 max-w-3xl w-full rounded-sm overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+      
+      <!-- Modal Header -->
+      <div class="p-5 bg-nv-deep border-b border-neutral-800 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <span class="w-2 h-2 rounded-full bg-nv-green"></span>
+          <span id="modal-tag" class="text-xs font-mono font-bold text-nv-green uppercase">PATENT ARCHITECTURE</span>
+        </div>
+        <button onclick="closeTechModal()" class="text-neutral-400 hover:text-white p-1" aria-label="닫기">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Dynamic injected) -->
+      <div id="modal-content" class="p-6 overflow-y-auto space-y-4 text-sm text-neutral-300 font-sans leading-relaxed">
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 bg-nv-deep border-t border-neutral-800 flex items-center justify-end space-x-3 font-mono text-xs">
+        <button onclick="closeTechModal()" class="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 rounded-sm">
+          닫기 (CLOSE)
+        </button>
+        <a href="#contact" onclick="closeTechModal()" class="px-4 py-2 bg-nv-green hover:bg-nv-greenHover text-black font-bold rounded-sm">
+          설계 및 견적 의뢰 (INQUIRE)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Alert Dialog Box -->
+  <div id="alert-dialog" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="bg-nv-card border border-neutral-700 max-w-md w-full p-6 rounded-sm text-center shadow-nv-card font-mono">
+      <div class="w-10 h-10 rounded-full bg-nv-green/20 text-nv-green flex items-center justify-center mx-auto mb-3">
+        <i data-lucide="info" class="w-5 h-5"></i>
+      </div>
+      <h3 class="text-base font-bold text-white mb-2">SYSTEM NOTIFICATION</h3>
+      <p id="alert-dialog-text" class="text-xs text-neutral-300 mb-6 leading-relaxed font-sans"></p>
+      <button onclick="closeCustomDialog()" class="w-full py-2 bg-nv-green hover:bg-nv-greenHover text-black font-extrabold text-xs uppercase tracking-wider rounded-sm transition">
+        확인 (CONFIRM)
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Mobile Navbar toggle
+    const mobileBtn = document.getElementById('mobile-toggle-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.m-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // 42 Verified Project Records from Catalog PPT (Pages 53~55)
+    const catalogProjects = [
+      { no: 1, name: "송정2교 보수공사", year: 2019, client: "광주광역시", type: "단면보수", note: "표면 및 단면보수" },
+      { no: 2, name: "삼서 소룡리 소룡교 교량유지보수 공사", year: 2019, client: "장성군", type: "단면보수", note: "표면보수" },
+      { no: 3, name: "삼계 수옥리 수각교 교량유지보수 공사", year: 2019, client: "장성군", type: "단면보수", note: "표면보수" },
+      { no: 4, name: "2019년 지방도 861호선 광양 금천교 등 3개소 보수공사", year: 2019, client: "전라남도", type: "단면보수", note: "표면 및 단면보수" },
+      { no: 5, name: "소랑대교 응급 보수·보강공사", year: 2019, client: "완도군", type: "단면보수", note: "표면 및 단면보수" },
+      { no: 6, name: "진도항 여객부두함선 긴급복구공사", year: 2019, client: "전라남도", type: "항만", note: "표면 및 단면보수 (함선)" },
+      { no: 7, name: "양을산터널 외 3개소 시설물 보수보강공사", year: 2019, client: "목포시", type: "단면보수", note: "표면 및 단면보수 (터널)" },
+      { no: 8, name: "국도38호선 정선소두문동지구 위험도로 개량공사", year: 2019, client: "정선국토관리사무소", type: "단면보수", note: "단면보수" },
+      { no: 9, name: "국도38호선 쌍용1교(상) 등 3개소 시설물 보수공사", year: 2019, client: "정선국토관리사무소", type: "단면보수", note: "표면보수" },
+      { no: 10, name: "국도38호선 무사교(하) 포장 보수공사", year: 2019, client: "정선국토관리사무소", type: "도장", note: "교면방수" },
+      { no: 11, name: "국도17호선 황전철도육교 시설물 보수공사", year: 2019, client: "순천국토관리사무소", type: "도장", note: "교면방수" },
+      { no: 12, name: "국도17호선 구례1교(하행) 교면포장 보수공사", year: 2019, client: "순천국토관리사무소", type: "도장", note: "교면방수" },
+      { no: 13, name: "국도2호선 홍암3교 시설물 보수공사", year: 2019, client: "광주국토관리사무소", type: "도장", note: "교면방수" },
+      { no: 14, name: "국도17호선 순천 지본교 등 3개소 시설물 보수공사", year: 2019, client: "순천국토관리사무소", type: "도장", note: "교면방수" },
+      { no: 15, name: "국도13호선 신흥교 강교도장 보수공사", year: 2019, client: "순천국토관리사무소", type: "도장", note: "강교도장(KRS)" },
+      { no: 16, name: "국도15호선 곡천교 시설물 보수공사", year: 2019, client: "순천국토관리사무소", type: "도장", note: "강교도장(KRS)" },
+      { no: 17, name: "2019년 국지도49호선 영암 삼포4교 내진보강공사", year: 2019, client: "전남도로관리사업소", type: "교량인상", note: "교량인상(MCS) 및 내진" },
+      { no: 18, name: "국도17호선 평여1교 신축이음 긴급 보수공사", year: 2019, client: "광주국토관리사무소", type: "교량인상", note: "신축이음장치 보수" },
+      { no: 19, name: "신성2교 신축이음 수선공사", year: 2019, client: "광주국토관리사무소", type: "교량인상", note: "신축이음장치 수선" },
+      { no: 20, name: "교량 신축이음장치 교체공사", year: 2019, client: "순천시", type: "교량인상", note: "신축이음 교체" },
+      { no: 21, name: "완도항 관공선부두 도교제작 및 함선 설치공사", year: 2019, client: "전라남도", type: "항만", note: "항만시설유지관리 (도교제작)" },
+      { no: 22, name: "완도항 부잔교 및 항만시설 유지관리공사", year: 2019, client: "전라남도", type: "항만", note: "부잔교 유지관리" },
+      { no: 23, name: "완도항 계류함선 고정시설 정비공사", year: 2019, client: "전라남도", type: "항만", note: "함선 고정시설 정비" },
+      { no: 24, name: "완도항 예비함선 도교제작 및 설치공사", year: 2019, client: "전라남도", type: "항만", note: "도교제작 및 설치" },
+      { no: 25, name: "목포혜인여자중학교 바닥후로링 보수공사", year: 2019, client: "목포혜인여자중학교", type: "단면보수", note: "교육청 시설물보수" },
+      { no: 26, name: "2020년 완도항 부잔교 및 항만시설 유지관리공사", year: 2020, client: "전라남도", type: "항만", note: "항만시설유지관리" },
+      { no: 27, name: "고하도 응박개항 부잔교 설치공사", year: 2020, client: "목포시", type: "항만", note: "부잔교 신설 설치" },
+      { no: 28, name: "국도38호선 곰골1교(상) 등 5개소 교량 보수공사", year: 2020, client: "정선국토관리사무소", type: "단면보수", note: "표면 및 단면보수" },
+      { no: 29, name: "옥암지하차도 등 3개소 시설물 보수보강공사", year: 2020, client: "목포시", type: "단면보수", note: "표면 및 단면보수" },
+      { no: 30, name: "완도항 제2, 3부두 보수보강공사", year: 2020, client: "전라남도", type: "항만", note: "표면 및 단면보수" },
+      { no: 31, name: "국도29호선 화순 용두교 등 3개소 시설물 보수공사", year: 2020, client: "광주국토관리사무소", type: "교량인상", note: "교량인상(MCS)" },
+      { no: 32, name: "국도6호선 평창 진부 간평 노폭확장공사", year: 2020, client: "강릉국토관리사무소", type: "단면보수", note: "표면 및 단면보수" },
+      { no: 33, name: "문내 임하교 보강공사", year: 2020, client: "해남군", type: "단면보수", note: "표면보수·패널보강" },
+      { no: 34, name: "완도항 카페리 연결도교 유지보수공사", year: 2020, client: "전라남도", type: "항만", note: "카페리 연결도교 보수" },
+      { no: 35, name: "국도17호선 만흥1교 등 2개소 시설물 보수공사", year: 2020, client: "순천국토관리사무소", type: "교량인상", note: "교량인상(MCS)" },
+      { no: 36, name: "진도항 등 2개항 접안시설 유지보수공사", year: 2020, client: "전라남도", type: "항만", note: "단면보수·접안시설" },
+      { no: 37, name: "국도31호선 합강3교 등 3개소 보수공사", year: 2020, client: "홍천국토관리사무소", type: "단면보수", note: "단면보수(KRM)" },
+      { no: 38, name: "국도27호선 도흥 상림2교 등 3개소 시설물보수공사", year: 2020, client: "순천국토관리사무소", type: "교량인상", note: "교량인상(MCS)" },
+      { no: 39, name: "완도항 제3부두 야적장 차선도색 및 물양장 정비공사", year: 2020, client: "전라남도", type: "항만", note: "항만시설유지관리" },
+      { no: 40, name: "국도44호선 임천1교외 4개소등 시설물 보수공사", year: 2020, client: "강릉국토관리사무소", type: "단면보수", note: "단면보수(KRM)" },
+      { no: 41, name: "국도21호선 군산 옥산2교(상) 등 4개교 보수공사", year: 2020, client: "전주국토관리사무소", type: "교량인상", note: "교량인상(MCS)" },
+      { no: 42, name: "국도38호선 곰골1교(하) 내진성능 보강공사", year: 2020, client: "정선국토관리사무소", type: "교량인상", note: "교량인상(MCS) & 내진전단키" }
+    ];
+
+    // Render Table Rows
+    const tableBody = document.getElementById('perf-table-body');
+    function renderProjects(filter = 'all') {
+      tableBody.innerHTML = '';
+      const filtered = catalogProjects.filter(p => filter === 'all' || p.type.includes(filter));
+      
+      filtered.forEach(p => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-neutral-900 transition-colors";
+        
+        let badgeColor = "bg-neutral-800 text-neutral-300";
+        if (p.type === '교량인상') badgeColor = "bg-nv-green/20 text-nv-green border border-nv-green/40";
+        if (p.type === '단면보수') badgeColor = "bg-blue-900/40 text-blue-300 border border-blue-700/40";
+        if (p.type === '항만') badgeColor = "bg-cyan-900/40 text-cyan-300 border border-cyan-700/40";
+        if (p.type === '도장') badgeColor = "bg-yellow-900/40 text-yellow-300 border border-yellow-700/40";
+
+        tr.innerHTML = `
+          <td class="py-3 px-4 text-center text-neutral-500 font-mono">${p.no}</td>
+          <td class="py-3 px-4 text-center font-bold text-white font-mono">${p.year}</td>
+          <td class="py-3 px-6 font-semibold text-white">${p.name}</td>
+          <td class="py-3 px-6 text-neutral-400">${p.client}</td>
+          <td class="py-3 px-6 text-center">
+            <span class="px-2 py-0.5 rounded text-[11px] font-bold ${badgeColor}">${p.note}</span>
+          </td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    }
+    renderProjects('all');
+
+    // Filter Buttons logic
+    const filterBtns = document.querySelectorAll('.perf-btn');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.className = "perf-btn px-3 py-1.5 rounded-sm bg-nv-surface hover:bg-neutral-800 text-neutral-300 border border-neutral-700";
+        });
+        btn.className = "perf-btn px-3 py-1.5 rounded-sm bg-nv-green text-black font-extrabold";
+        renderProjects(btn.dataset.filter);
+      });
+    });
+
+    // MCS Jacking Simulation Logic
+    let simInterval = null;
+    let isJacking = false;
+
+    function runJackingSim() {
+      if (isJacking) return;
+      isJacking = true;
+      const target = parseFloat(document.getElementById('target-input').value);
+      document.getElementById('display-target-val').textContent = target.toFixed(1);
+      
+      const statusLed = document.getElementById('sim-status-led');
+      const statusText = document.getElementById('sim-status-text');
+      statusLed.className = "w-2.5 h-2.5 rounded-full bg-nv-green animate-ping";
+      statusText.textContent = "SYNCHRONOUS JACKING ACTIVE (동시 인상 중...)";
+      statusText.className = "text-nv-green font-bold";
+
+      let currentVals = [0.0, 0.0, 0.0, 0.0];
+      const maxVal = target;
+
+      if (simInterval) clearInterval(simInterval);
+      simInterval = setInterval(() => {
+        let allDone = true;
+        for (let i = 0; i < 4; i++) {
+          // Add precise increments with micro-variation within ±0.2mm tolerance
+          if (currentVals[i] < maxVal) {
+            allDone = false;
+            const jitter = (Math.random() * 0.08) - 0.04;
+            currentVals[i] = Math.min(maxVal, currentVals[i] + 0.35 + jitter);
+          }
+        }
+
+        // Update visuals
+        for (let i = 0; i < 4; i++) {
+          const idx = i + 1;
+          const pct = Math.min(100, (currentVals[i] / 30) * 80 + 10);
+          document.getElementById(`jack${idx}-disp`).textContent = currentVals[i].toFixed(1) + " mm";
+          document.getElementById(`jack${idx}-bar`).style.height = `${pct}%`;
+          // Pressure fluctuation
+          const press = Math.round(145 + (currentVals[i] * 1.8) + (Math.random() * 3));
+          document.getElementById(`jack${idx}-press`).textContent = `${press} bar`;
+        }
+
+        const avg = (currentVals.reduce((a, b) => a + b, 0) / 4).toFixed(1);
+        document.getElementById('display-current-val').textContent = avg;
+
+        if (allDone) {
+          clearInterval(simInterval);
+          isJacking = false;
+          statusLed.className = "w-2.5 h-2.5 rounded-full bg-cyan-400";
+          statusText.textContent = "TARGET REACHED: LOCK COMPLETED (목표 도달 고정)";
+          statusText.className = "text-cyan-400 font-bold";
+        }
+      }, 70);
+    }
+
+    function resetJackingSim() {
+      if (simInterval) clearInterval(simInterval);
+      isJacking = false;
+      document.getElementById('sim-status-led').className = "w-2.5 h-2.5 rounded-full bg-neutral-600";
+      const statusText = document.getElementById('sim-status-text');
+      statusText.textContent = "SYSTEM READY (초기화 완료)";
+      statusText.className = "text-white font-bold";
+
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById(`jack${i}-disp`).textContent = "0.0 mm";
+        document.getElementById(`jack${i}-bar`).style.height = "10%";
+        document.getElementById(`jack${i}-press`).textContent = "0 bar";
+      }
+      document.getElementById('display-current-val').textContent = "0.0";
+    }
+
+    // Technology Whitepaper Details Data
+    const techWhitepapers = {
+      KRM: {
+        tag: "PATENT NO. 10-1975001 / 10-2058597",
+        html: `
+          <h3 class="text-xl font-bold text-white mb-2">KRM 콘크리트 단면 및 표면보수 시스템</h3>
+          <p class="text-xs text-nv-green font-mono mb-4">// 용선슬래그 혼합 친환경 폴리머 모르타르 및 복합 통기성 표면보호 도막</p>
+          
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2">1. 원천 기술 개요</h4>
+          <p class="text-xs text-neutral-300 leading-relaxed mb-4">
+            제철산업의 부산물인 용선슬래그를 미분말화하고 무기질 활성화제를 융합하여 시멘트 수화 반응을 극대화한 친환경 특허 자재입니다. 
+            황산염 및 염화물 이온 침투를 완벽 차단하고 콘크리트 수명(내용연수)을 획기적으로 연장합니다.
+          </p>
+
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2">2. SGS 시험성적서 공인 성능 (No. CMT2019-5189 / 5195)</h4>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-mono mb-4">
+            <div class="p-2 bg-nv-deep border border-neutral-800 rounded">
+              <span class="text-neutral-500 block text-[10px]">압축강도(28일)</span>
+              <span class="text-white font-bold text-sm">45.2 N/㎟</span>
+            </div>
+            <div class="p-2 bg-nv-deep border border-neutral-800 rounded">
+              <span class="text-neutral-500 block text-[10px]">휨강도</span>
+              <span class="text-white font-bold text-sm">9.5 N/㎟</span>
+            </div>
+            <div class="p-2 bg-nv-deep border border-neutral-800 rounded">
+              <span class="text-neutral-500 block text-[10px]">표준부착강도</span>
+              <span class="text-white font-bold text-sm">1.8 N/㎟</span>
+            </div>
+            <div class="p-2 bg-nv-deep border border-neutral-800 rounded">
+              <span class="text-neutral-500 block text-[10px]">염소이온 침투저항</span>
+              <span class="text-nv-green font-bold text-sm">60 Coulombs</span>
+            </div>
+          </div>
+
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2">3. 9단계 표준 시공 메커니즘</h4>
+          <ol class="list-decimal pl-5 text-xs text-neutral-400 space-y-1 font-mono">
+            <li>열화부 콘크리트 치핑 &rarr; 2. 초고압 물세척 &rarr; 3. 알칼리 회복제(KRM-100, pH 10 이상) 도포</li>
+            <li>접착 프라이머(KRM-200, 1N/㎟ 이상) 도포 &rarr; 5. KRM 폴리머 모르타르 타설 및 단면 성형</li>
+            <li>블록 조정 &rarr; 7. 레벨링 검수 &rarr; 8. 중성화 방지제(KRM-300) 도포 &rarr; 9. 시공 완료</li>
+          </ol>
+        `
+      },
+      MCS: {
+        tag: "PATENT NO. 10-2049868",
+        html: `
+          <h3 class="text-xl font-bold text-white mb-2">MCS 컴퓨터 교량 동조 인상 시스템</h3>
+          <p class="text-xs text-nv-green font-mono mb-4">// 멀티피스톤펌프 &amp; 모터 인버터 실시간 변위 피드백 제어</p>
+
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2">1. 시스템 아키텍처</h4>
+          <p class="text-xs text-neutral-300 leading-relaxed mb-4">
+            12개의 독립 토출구를 갖춘 멀티피스톤 펌프와 고정밀 엔코더(거리측정센서, DC 4~20mA)를 통해 교각별 하중 편차를 실시간 상쇄합니다. 
+            0.1mm 단위 정밀 계측으로 교량 신축이음부나 Sole Plate에 2차 응력 집중이 발생하지 않도록 동시 인상·인하를 수행합니다.
+          </p>
+
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2">2. 핵심 안전 프로토콜</h4>
+          <ul class="list-disc pl-5 text-xs text-neutral-400 space-y-1.5 mb-4">
+            <li><strong>안전 편차 자동 제어:</strong> 설정 편차(±0.3mm) 초과 시 선행 펌프 자동 감속 및 일시정지</li>
+            <li><strong>개별 UNIT 터치패널 분산 제어:</strong> 메인 컨트롤 패널과 유닛별 HMI를 이중화하여 통신 단절 사고 방지</li>
+            <li><strong>인력 감축 및 공기 단축:</strong> 수동 유압잭 작업 대비 현장 안전사고 제로 및 공기 50% 단축</li>
+          </ul>
+
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2">3. 시공 절차</h4>
+          <p class="text-xs text-neutral-400 font-mono">
+            사전 하중 계산 &rarr; 지지 브라켓 거치 &rarr; 유압잭 및 엔코더 결선 &rarr; 컴퓨터 동시 인상 &rarr; 노후 받침 철거 &rarr; 신규 무수축 몰탈 타설 &rarr; 하중 이양 완료
+          </p>
+        `
+      },
+      KRS: {
+        tag: "PATENT NO. 10-2133243",
+        html: `
+          <h3 class="text-xl font-bold text-white mb-2">KRS 친환경 수용성 중방식 도장 시스템</h3>
+          <p class="text-xs text-nv-green font-mono mb-4">// KTR 인증 수용성 폴리우레탄 수지도료 기반 강교량·플랜트 방식</p>
+
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2">1. 수용성 혁신의 필요성</h4>
+          <p class="text-xs text-neutral-300 leading-relaxed mb-4">
+            전통적인 유성 우레탄 도료는 유기용제(시너) 휘발로 인한 작업자 중독 및 화재 폭발의 위험이 큽니다. KRS 공법은 물을 용매로 사용하여 화재 위험성이 전무하고 작업자 건강을 보장합니다.
+          </p>
+
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2">2. KTR 공인 시험 성적 (No. TAK-2020-126673)</h4>
+          <div class="grid grid-cols-3 gap-2 text-center text-xs font-mono mb-4">
+            <div class="p-2 bg-nv-deep border border-neutral-800 rounded">
+              <span class="text-neutral-500 block text-[10px]">VOCs 함량</span>
+              <span class="text-nv-green font-bold text-sm">84.7 g/L</span>
+            </div>
+            <div class="p-2 bg-nv-deep border border-neutral-800 rounded">
+              <span class="text-neutral-500 block text-[10px]">광택도(60°)</span>
+              <span class="text-white font-bold text-sm">84 GU</span>
+            </div>
+            <div class="p-2 bg-nv-deep border border-neutral-800 rounded">
+              <span class="text-neutral-500 block text-[10px]">촉진내후성 유지율</span>
+              <span class="text-white font-bold text-sm">94%</span>
+            </div>
+          </div>
+
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2">3. 5중 레이어 시스템</h4>
+          <p class="text-xs text-neutral-400 font-mono">
+            모재 표면처리 &rarr; 도막 박리제(K.R.M-1000) &rarr; 하도(WE-100) &rarr; 중도(WE-200) &rarr; 친환경 상도(WP-300)
+          </p>
+        `
+      },
+      KRSC: {
+        tag: "PATENT NO. 10-2166122",
+        html: `
+          <h3 class="text-xl font-bold text-white mb-2">KRS-C 강교량 레이저 세정 녹·페인트 박리공법</h3>
+          <p class="text-xs text-nv-green font-mono mb-4">// 도장박리제 전처리 + 고출력 산업용 레이저 비접촉 클리닝</p>
+
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2">1. 샌드블라스트 vs KRS-C 레이저 세정 비교</h4>
+          <div class="overflow-x-auto mb-4">
+            <table class="w-full text-xs font-mono text-left border border-neutral-800">
+              <thead class="bg-nv-deep text-neutral-400">
+                <tr>
+                  <th class="p-2 border border-neutral-800">구분</th>
+                  <th class="p-2 border border-neutral-800">기존 샌드블라스트</th>
+                  <th class="p-2 border border-neutral-800 text-nv-green">KRS-C 레이저 세정</th>
+                </tr>
+              </thead>
+              <tbody class="text-neutral-300 divide-y divide-neutral-800">
+                <tr>
+                  <td class="p-2 font-bold text-white">폐기물 처리비</td>
+                  <td class="p-2 text-neutral-400 line-through">㎡당 14,000원</td>
+                  <td class="p-2 text-nv-green font-bold">㎡당 1,200원 (91% 절감)</td>
+                </tr>
+                <tr>
+                  <td class="p-2 font-bold text-white">모재 손상도</td>
+                  <td class="p-2 text-red-400">연마재 마모 발생</td>
+                  <td class="p-2 text-nv-green font-bold">비접촉식 표면 손상 전무</td>
+                </tr>
+                <tr>
+                  <td class="p-2 font-bold text-white">환경 및 분진</td>
+                  <td class="p-2">대규모 방진막·소음 과다</td>
+                  <td class="p-2 text-nv-green font-bold">비산먼지 전무·친환경 클리닝</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2">2. 비즈니스 전략</h4>
+          <p class="text-xs text-neutral-300 leading-relaxed">
+            국내 대형 강교량 보수공사 및 선박 해양 플랜트 구조물에 친환경 레이저 자동화 로봇 기술을 융합하여 미래 고부가가치 유지보수 시장을 선도합니다.
+          </p>
+        `
+      }
+    };
+
+    const techModal = document.getElementById('tech-modal');
+    const modalTag = document.getElementById('modal-tag');
+    const modalContent = document.getElementById('modal-content');
+
+    function openTechModal(key) {
+      const data = techWhitepapers[key];
+      if (!data) return;
+      modalTag.textContent = data.tag;
+      modalContent.innerHTML = data.html;
+      techModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
+
+    function closeTechModal() {
+      techModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Custom Alert Box
+    const alertDialog = document.getElementById('alert-dialog');
+    const alertText = document.getElementById('alert-dialog-text');
+
+    function showCustomDialog(msg) {
+      alertText.textContent = msg;
+      alertDialog.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
+
+    function closeCustomDialog() {
+      alertDialog.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Inquiry Form Handling
+    function handleInquirySubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const comp = document.getElementById('company').value;
+      const phone = document.getElementById('phone').value;
+      
+      showCustomDialog(`${comp} ${name} 담당자님, 케이알건설㈜ 엔지니어링 기술 지원 접수가 완료되었습니다. 남겨주신 연락처(${phone})로 24시간 이내에 담당 기술팀장이 공법 검토의견서 및 견적서를 회신해 드리겠습니다.`);
+      document.getElementById('inquiry-form').reset();
+    }
+
+    // Window Click & ESC Key Close
+    window.addEventListener('click', (e) => {
+      if (e.target === techModal) closeTechModal();
+      if (e.target === alertDialog) closeCustomDialog();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeTechModal();
+        closeCustomDialog();
+      }
+    });
+  </script>
+</body>
+</html>
